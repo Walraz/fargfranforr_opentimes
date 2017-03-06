@@ -22,14 +22,14 @@ app.get('/opentimes', function (req, res) {
 })
 
 app.put('/shop', function (req, res) {
-  conn.query('UPDATE fargfranforr SET shop=' + req.body.text + ' WHERE id = 1', function (error, results, fields) {
+  conn.query('UPDATE fargfranforr SET shop=?', req.body.text, function (error, results, fields) {
     if (error) throw error;
     res.sendStatus(201);
   });
 })
 
 app.put('/cafe', function (req, res) {
-  conn.query('UPDATE fargfranforr SET cafe=' + req.body.text + 'WHERE id = 2', function (error, results, fields) {
+  conn.query('UPDATE fargfranforr SET cafe=?', req.body.text, function (error, results, fields) {
     if (error) throw error;
     res.sendStatus(201);
   });
