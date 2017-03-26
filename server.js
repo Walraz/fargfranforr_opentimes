@@ -11,7 +11,7 @@ var config = {
   host: process.env.DATABASE_URL,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
-  database: process.env..DB_DATABASE
+  database: process.env.DB_DATABASE
 };
 
 var conn = mysql.createConnection(config);
