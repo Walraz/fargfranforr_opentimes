@@ -8,10 +8,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 var config = {
-  host: 'sql8.freemysqlhosting.net',
-  user: 'sql8162399',
-  password: 'A172SKU8P8',
-  database: 'sql8162399'
+  host: process.env.DATABASE_URL,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env..DB_DATABASE
 };
 
 var conn = mysql.createConnection(config);
