@@ -11,7 +11,7 @@ var config = {
   host: process.env.DATABASE_URL,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
-  database: process.env..DB_DATABASE
+  database: process.env.DB_DATABASE
 };
 
 var conn = mysql.createConnection(config);
@@ -20,6 +20,13 @@ app.get('/opentimes', function (req, res) {
   conn.query('SELECT * FROM fargfranforr', function (error, results, fields) {
     if (error) throw error;
     res.send(results);
+  });
+})
+
+app.put('/general', function (req, res) {
+  conn.query('UPDATE fargfranforr SET general=?', [req.body.text], function (error, results, fields) {
+    if (error) throw error;
+    res.sendStatus(201);
   });
 })
 
